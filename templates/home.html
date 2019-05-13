@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:GhostWhite;">
+<head>
+	<style>
+    body {
+        text-align: left;
+        padding: 60px 0;
+        margin: 0 auto;
+        font-family: Calibri, sans-serif;
+    }
+    h1 {
+        margin: 0;
+        font-weight: 900;
+        font-size: 34px;
+        line-height: 48px;
+        color: #231d3c;
+        font-family: Calibri, sans-serif;
+    }
+     h2 {
+        columns: #7d53ef;
+        font-size: 26px;
+        line-height: 48px;
+        margin: 0;
+        font-family: Calibri, sans-serif;
+    }
+    p {
+        font-size: 18px;
+        font-family: Calibri;
+    }
+    button {
+        background: #white;
+        color: white;
+        font-size: 18px;
+        padding: 16px 24 px;
+        border-radius: 30px;
+        border: 1px solid #
+    }
+	</style>
+	<title>Are you getting a Masters?</title>
+</head>
+<body>
+
+<h1>Discover Your Chances of Getting into your Dream University using Machine Learning!</h1>
+<h2>Try the Student Admission Predictor Below</h2>
+
+<form action="{{ url_for('results') }}" method="POST" id='message'>
+	<p>
+	University:
+		<select name='uni'>
+			<option selected> University</option>
+			{% for d in uni %}
+			<option value = '{{d}}'>{{d}}</option>
+			{% endfor %}
+			</select><br>
+	</p>
+	<p>
+	Course:
+		<select name='cour'>
+			<option selected> Course</option>
+			{% for d in cour %}
+			<option value = '{{d}}'>{{d}}</option>
+			{% endfor %}
+			</select><br>
+	</p>
+	<p>
+	Graduate Year: <input type="text" name="year"><br>
+	</p>
+	<p>
+	GRE Score: <input type="text" name="gre"><br>
+	</p>
+	<p>
+	Undergraduate Score (in percentage): <input type="text" name="undergrad"><br>
+	</p>
+	<p>
+	Work Experience (in months): <input type="text" name="work"><br>
+	</p>
+	<p>
+	<input type="submit" value="Tell me my chances">
+	</p>
+</form>
+
+<p><a href="{{ url_for('disclaimer') }}">Disclaimer.</a></p>
+</body>
+</html>
